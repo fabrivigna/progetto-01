@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalogo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/custom.css">
+    
+    <style>
+        .card {
+            width: 18rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Catalogo Articoli</h1>
+        <div class="row">
+            <div th:each="articolo : ${catalogo}" class="col-md-4">
+                <div class="card">
+				<img th:src="@{'/' + ${articolo.foto}}" class="card-img-top" alt="Immagine Articolo">
+                    <div class="card-body">
+                        <h5 th:text="${articolo.marca + ' ' + articolo.modello}" class="card-title"></h5>
+                        <p><strong>Sistema Operativo:</strong> <span th:text="${articolo.sistemaOperativo}"></span></p>
+                        <p><strong>Memoria:</strong> <span th:text="${articolo.memoria}"></span></p>
+                        <p><strong>Prezzo:</strong> <span th:text="${articolo.prezzo}"></span></p>
+                        <a th:href="@{/dettaglio/{id}(id=${articolo.id})}" class="btn btn-primary">Dettaglio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

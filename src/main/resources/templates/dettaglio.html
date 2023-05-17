@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettaglio Articolo</title>
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/custom.css">
+    
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <a href="/" class="btn btn-outline-primary mt-3">
+        <i class="bi bi-arrow-left"></i> Torna alla lista
+      </a>
+    </div>
+  </div>
+</div>
+    <div class="container">
+        <h1>Dettaglio Articolo</h1>
+        <div class="card">
+            <img th:src="@{'/' + ${articolo.foto}}" class="card-img-top" alt="Immagine Articolo">
+            <div class="card-body">
+                <h5 th:text="${articolo.marca + ' ' + articolo.modello}" class="card-title"></h5>
+                <p><strong>Sistema Operativo:</strong> <span th:text="${articolo.sistemaOperativo}"></span></p>
+                <p><strong>Memoria:</strong> <span th:text="${articolo.memoria}"></span></p>
+                <p><strong>Prezzo:</strong> <span th:text="${articolo.prezzo}"></span></p>
+                <p><strong>Descrizione:</strong> <span th:text="${articolo.descrizione}"></span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
